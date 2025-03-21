@@ -24,7 +24,7 @@ export default () =>
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      // marginTop: -70,
+      marginTop: -70,
     },
     loadingText: {
       alignItems: 'center',
