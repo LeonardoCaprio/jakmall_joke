@@ -71,7 +71,7 @@ export default () =>
     },
     emptyText: {
       marginTop: 10,
-      color: '#000',
+      color: colors.black,
       fontSize: 13,
       fontWeight: '600',
       textAlign: 'center',
@@ -79,6 +79,19 @@ export default () =>
     emptyImage: {
       width: 80,
       height: 80,
+    },
+    emptyTitle: {
+      fontSize: 15,
+      fontWeight: 'bold',
+      color: colors.darkGrey2,
+      marginBottom: 7,
+      marginTop: 10,
+    },
+    emptySubtitle: {
+      fontSize: 13,
+      color: colors.darkGrey,
+      textAlign: 'center',
+      lineHeight: 18,
     },
     loadingFooter: {
       paddingVertical: 15,
@@ -97,7 +110,7 @@ export default () =>
     },
     loadingText: {
       marginTop: 8,
-      color: '#000',
+      color: colors.black,
       fontSize: 14,
     },
     footerLoading: {

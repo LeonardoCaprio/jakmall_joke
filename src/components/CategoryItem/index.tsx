@@ -83,13 +83,14 @@ const CategoryItem: React.FC<ICategoryItemProps> = ({
     return (
       <View style={styles.emptyContainer}>
         <Image
-          source={require('@assets/icon/emptyJoke.png')}
+          source={require('@assets/icon/empty.png')}
           style={styles.emptyImage}
         />
-        <Text
-          style={
-            styles.emptyText
-          }>{`No jokes were found that match for ${category.categoryName} Category`}</Text>
+        <Text style={styles.emptyTitle}>No Jokes Found! 😅</Text>
+        <Text style={styles.emptySubtitle}>
+          We couldn't find any jokes in the "{category.categoryName}" category.
+          Try exploring a different one for more laughs! 🎉
+        </Text>
       </View>
     );
   };

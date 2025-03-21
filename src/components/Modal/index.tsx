@@ -1,78 +1,72 @@
 import If from '@components/If';
-import React, {ReactNode} from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  ViewStyle,
-  TextStyle,
-} from 'react-native';
+import React, {ReactNode, useMemo} from 'react';
+import {View, Text, TouchableOpacity, ViewStyle, TextStyle} from 'react-native';
 import Modal from 'react-native-modal';
+import style from './style';
 
 type Animation =
-| 'bounce'
-| 'flash'
-| 'jello'
-| 'pulse'
-| 'rotate'
-| 'rubberBand'
-| 'shake'
-| 'swing'
-| 'tada'
-| 'wobble'
-| 'bounceIn'
-| 'bounceInDown'
-| 'bounceInUp'
-| 'bounceInLeft'
-| 'bounceInRight'
-| 'bounceOut'
-| 'bounceOutDown'
-| 'bounceOutUp'
-| 'bounceOutLeft'
-| 'bounceOutRight'
-| 'fadeIn'
-| 'fadeInDown'
-| 'fadeInDownBig'
-| 'fadeInUp'
-| 'fadeInUpBig'
-| 'fadeInLeft'
-| 'fadeInLeftBig'
-| 'fadeInRight'
-| 'fadeInRightBig'
-| 'fadeOut'
-| 'fadeOutDown'
-| 'fadeOutDownBig'
-| 'fadeOutUp'
-| 'fadeOutUpBig'
-| 'fadeOutLeft'
-| 'fadeOutLeftBig'
-| 'fadeOutRight'
-| 'fadeOutRightBig'
-| 'flipInX'
-| 'flipInY'
-| 'flipOutX'
-| 'flipOutY'
-| 'lightSpeedIn'
-| 'lightSpeedOut'
-| 'slideInDown'
-| 'slideInUp'
-| 'slideInLeft'
-| 'slideInRight'
-| 'slideOutDown'
-| 'slideOutUp'
-| 'slideOutLeft'
-| 'slideOutRight'
-| 'zoomIn'
-| 'zoomInDown'
-| 'zoomInUp'
-| 'zoomInLeft'
-| 'zoomInRight'
-| 'zoomOut'
-| 'zoomOutDown'
-| 'zoomOutUp'
-| 'zoomOutLeft'
-| 'zoomOutRight';
+  | 'bounce'
+  | 'flash'
+  | 'jello'
+  | 'pulse'
+  | 'rotate'
+  | 'rubberBand'
+  | 'shake'
+  | 'swing'
+  | 'tada'
+  | 'wobble'
+  | 'bounceIn'
+  | 'bounceInDown'
+  | 'bounceInUp'
+  | 'bounceInLeft'
+  | 'bounceInRight'
+  | 'bounceOut'
+  | 'bounceOutDown'
+  | 'bounceOutUp'
+  | 'bounceOutLeft'
+  | 'bounceOutRight'
+  | 'fadeIn'
+  | 'fadeInDown'
+  | 'fadeInDownBig'
+  | 'fadeInUp'
+  | 'fadeInUpBig'
+  | 'fadeInLeft'
+  | 'fadeInLeftBig'
+  | 'fadeInRight'
+  | 'fadeInRightBig'
+  | 'fadeOut'
+  | 'fadeOutDown'
+  | 'fadeOutDownBig'
+  | 'fadeOutUp'
+  | 'fadeOutUpBig'
+  | 'fadeOutLeft'
+  | 'fadeOutLeftBig'
+  | 'fadeOutRight'
+  | 'fadeOutRightBig'
+  | 'flipInX'
+  | 'flipInY'
+  | 'flipOutX'
+  | 'flipOutY'
+  | 'lightSpeedIn'
+  | 'lightSpeedOut'
+  | 'slideInDown'
+  | 'slideInUp'
+  | 'slideInLeft'
+  | 'slideInRight'
+  | 'slideOutDown'
+  | 'slideOutUp'
+  | 'slideOutLeft'
+  | 'slideOutRight'
+  | 'zoomIn'
+  | 'zoomInDown'
+  | 'zoomInUp'
+  | 'zoomInLeft'
+  | 'zoomInRight'
+  | 'zoomOut'
+  | 'zoomOutDown'
+  | 'zoomOutUp'
+  | 'zoomOutLeft'
+  | 'zoomOutRight';
 
 interface CustomModalProps {
   isVisible: boolean;
@@ -109,6 +103,8 @@ const CustomModal: React.FC<CustomModalProps> = ({
   isShowXbutton,
   closeOnBackdrop = true,
 }) => {
+  const styles = useMemo(() => style(), []);
+
   return (
     <Modal
       isVisible={isVisible}
@@ -144,69 +140,5 @@ const CustomModal: React.FC<CustomModalProps> = ({
     </Modal>
   );
 };
-
-const styles = StyleSheet.create({
-  modal: {
-    margin: 0,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  container: {
-    backgroundColor: 'white',
-    borderRadius: 10,
-    width: '85%',
-    maxWidth: 500,
-    overflow: 'hidden',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: '#333',
-    flex: 1,
-  },
-  closeButton: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f0f0f0',
-  },
-  closeButtonText: {
-    fontSize: 20,
-    color: '#666',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  body: {
-    padding: 16,
-  },
-  footer: {
-    borderTopWidth: 1,
-    borderTopColor: '#e0e0e0',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
-});
 
 export default CustomModal;

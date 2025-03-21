@@ -1,14 +1,16 @@
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import React, {useState} from 'react';
+import {View, Text, TouchableOpacity} from 'react-native';
+import React, {useMemo, useState} from 'react';
 import {Joke} from '@model/types';
 import CustomModal from '@components/Modal';
 import Button from '@components/Button';
+import style from './style';
 
 interface IJokeItemProps {
   joke: Joke;
 }
 
 const JokeItem: React.FC<IJokeItemProps> = ({joke}) => {
+    const styles = useMemo(() => style(), []);
   const [modalVisible, setModalVisible] = useState(false);
 
   const onItemPress = () => {
@@ -37,7 +39,7 @@ const JokeItem: React.FC<IJokeItemProps> = ({joke}) => {
       <CustomModal
         isVisible={modalVisible}
         onClose={hideModal}
-        title={`Detail Joke for ${joke.category} Category`}
+        title={'Explore Fun Jokes! 😂'}
         footer={footerContent}
         animationIn="fadeIn"
         animationOut="fadeOut"
@@ -47,35 +49,5 @@ const JokeItem: React.FC<IJokeItemProps> = ({joke}) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#ffffff',
-    padding: 16,
-    borderRadius: 10,
-    marginBottom: 12,
-    marginHorizontal: 8,
-    borderLeftWidth: 4,
-    borderLeftColor: '#2196F3',
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 1},
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 2,
-  },
-  content: {
-    flex: 1,
-  },
-  jokeText: {
-    fontSize: 16,
-    color: '#333',
-    lineHeight: 22,
-  },
-  modalText: {
-    fontSize: 16,
-    lineHeight: 22,
-    marginBottom: 12,
-  },
-});
 
 export default JokeItem;

@@ -1,3 +1,4 @@
+import colors from '@design/colors';
 import {StyleSheet} from 'react-native';
 
 export default () =>
@@ -10,25 +11,25 @@ export default () =>
         justifyContent: 'center',
       },
       primary: {
-        backgroundColor: '#007AFF',
+        backgroundColor: colors.button.primaryButton,
       },
       secondary: {
-        backgroundColor: '#E0E0E0',
+        backgroundColor: colors.button.secondaryButton,
       },
       icon: {
         width: 36,
         height: 36,
         borderRadius: 18,
-        backgroundColor: '#E0E0E0',
+        backgroundColor: colors.button.secondaryButton,
       },
       text: {
         fontSize: 14,
         fontWeight: '600',
       },
       primaryText: {
-        color: 'white',
+        color: colors.white,
       },
       secondaryText: {
-        color: '#000',
+        color: colors.black,
       },
   });

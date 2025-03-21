@@ -5,7 +5,7 @@ export default () =>
     sections: {
       alignItems: 'center',
       justifyContent: 'center',
-      paddingHorizontal: 10,
+      paddingHorizontal: 30,
     },
     title: {
       fontSize: 23,
@@ -14,5 +14,6 @@ export default () =>
     },
     description: {
       textAlign: 'center',
+      lineHeight: 20,
     },
   });

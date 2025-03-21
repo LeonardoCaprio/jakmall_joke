@@ -9,19 +9,22 @@ export default () =>
     },
     scrollView: {
       flex: 1,
-      paddingHorizontal: 20,
+    },
+    scrollViewContent: {
+      flexGrow: 1,
     },
     bodySection: {
       flex: 1,
       height: 'auto',
       paddingTop: 20,
       marginHorizontal: 12,
+      paddingHorizontal: 20,
     },
     loadingContainer: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      height: '100%',
+      // marginTop: -70,
     },
     loadingText: {
       alignItems: 'center',

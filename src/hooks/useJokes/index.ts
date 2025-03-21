@@ -10,9 +10,11 @@ import {useCallback, useEffect, useState} from 'react';
 
 const useJokes = () => {
   const [categories, setCategories] = useState<Category[]>([]);
-  const [isLoadingInitialData, setIsLodingInitialData] = useState<boolean>(true);
+  const [isLoadingInitialData, setIsLodingInitialData] =
+    useState<boolean>(true);
   const [errorInitialData, setErrorInitialData] = useState<string | null>(null);
-  const [isLoadingGetMoreData, setIsLoadingGetMoreData] = useState<boolean>(false);
+  const [isLoadingGetMoreData, setIsLoadingGetMoreData] =
+    useState<boolean>(false);
 
   const fetchCategories = async (): Promise<string[]> => {
     try {
@@ -58,22 +60,16 @@ const useJokes = () => {
       setIsLodingInitialData(true);
       setErrorInitialData(null);
 
-      // Fetch categories
       const categoryNames = await fetchCategories();
-
-      // Fetch initial jokes for each category
       const categoriesWithJokes: Category[] = await Promise.all(
         categoryNames.map(async (name, index) => {
           const jokesResponse = await fetchJokesForCategory(name);
 
-          // Convert to our Joke model
-          const jokes: Joke[] = jokesResponse.jokes
-            ? jokesResponse.jokes.map(joke => ({
-                id: joke.id,
-                joke: joke.joke,
-                category: name,
-              }))
-            : [];
+          const jokes: Joke[] = jokesResponse.jokes.map(joke => ({
+            id: joke.id,
+            joke: joke.joke,
+            category: name,
+          }));
 
           return {
             id: index,
@@ -99,14 +95,11 @@ const useJokes = () => {
       const jokesResponse = await fetchJokesForCategory(category.categoryName);
       console.log(jokesResponse);
 
-      // Convert to our Joke model
-      const newJokes: Joke[] = jokesResponse.jokes
-        ? jokesResponse.jokes.map(joke => ({
-            id: joke.id,
-            joke: joke.joke,
-            category: category.categoryName,
-          }))
-        : [];
+      const newJokes: Joke[] = jokesResponse.jokes.map(joke => ({
+        id: joke.id,
+        joke: joke.joke,
+        category: category.categoryName,
+      }));
 
       // Update the category with new jokes
       const updatedCategories = [...categories];
