@@ -19,6 +19,7 @@ export default () =>
       paddingTop: 20,
       marginHorizontal: 12,
       paddingHorizontal: 20,
+      paddingBottom: 30,
     },
     loadingContainer: {
       flex: 1,
